@@ -1,0 +1,6 @@
+{
+  "name": "机务电子检查单",
+  "description": "专为航空机务人员打造的离线电子检查单应用，支持航前、航后、过站等自定义检查单管理、点击变绿确认与一键重置重复使用。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
