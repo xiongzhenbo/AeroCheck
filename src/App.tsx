@@ -54,8 +54,13 @@ function formatTimeHM(date: Date): string {
 export default function App() {
   const [checklists, setChecklists] = useState<ChecklistTemplate[]>(loadInitialChecklists);
   const [activeId, setActiveId] = useState<string>(() => {
-    const saved = localStorage.getItem(STORAGE_ACTIVE_ID_KEY);
-    return saved || loadInitialChecklists()[0].id;
+    try {
+      const saved = localStorage.getItem(STORAGE_ACTIVE_ID_KEY);
+      if (saved) return saved;
+    } catch {
+      // Ignore storage access errors
+    }
+    return DEFAULT_CHECKLISTS[0].id;
   });
   const [settings, setSettings] = useState<AppSettings>(loadInitialSettings);
 
@@ -93,7 +98,11 @@ export default function App() {
 
   useEffect(() => {
     if (activeChecklist) {
-      localStorage.setItem(STORAGE_ACTIVE_ID_KEY, activeChecklist.id);
+      try {
+        localStorage.setItem(STORAGE_ACTIVE_ID_KEY, activeChecklist.id);
+      } catch {
+        // Ignore quota errors
+      }
     }
   }, [activeChecklist]);
 

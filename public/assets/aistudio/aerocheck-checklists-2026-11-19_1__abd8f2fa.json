@@ -1,0 +1,292 @@
+[
+  {
+    "id": "tpl-1795086487736",
+    "name": "工作清单",
+    "code": "TL",
+    "aircraftModel": "每次工作的清单汇总",
+    "description": "",
+    "items": [],
+    "updatedAt": "2026-11-19T11:08:07.736Z"
+  },
+  {
+    "id": "tpl-1795086577103",
+    "name": "收工复检",
+    "code": "PL",
+    "aircraftModel": "",
+    "description": "",
+    "items": [
+      {
+        "id": "item-1795087026970-52y8",
+        "title": "遮阳帘在正确位置",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795086737543-60z7",
+        "title": "黑舱",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795086833539-qut7",
+        "title": "外部电源面板灯检查及测试",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795086854929-mew4",
+        "title": "所有舱门及外流活门关闭",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795086900166-s61i",
+        "title": "所有销子、罩子已安装。",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795087075400-voxy",
+        "title": "封条贴好",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795087085766-dud3",
+        "title": "备用钥匙在位",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      }
+    ],
+    "updatedAt": "2026-11-19T11:18:05.766Z"
+  },
+  {
+    "id": "tpl-preflight",
+    "name": "航前检查",
+    "code": "PF",
+    "aircraftModel": "B737 / A320 通用",
+    "description": "每日首班出港前绕机与驾驶舱基础状态核对",
+    "updatedAt": "2026-11-19T10:31:05.871Z",
+    "items": [
+      {
+        "id": "pf-1",
+        "title": "地面安全销及反光锥筒确认",
+        "zone": "机身周边",
+        "spec": "起落架安全销插放规范，反光锥筒位置无侵限",
+        "checked": false
+      },
+      {
+        "id": "pf-2",
+        "title": "空速管、静压孔与迎角传感器",
+        "zone": "前机身",
+        "spec": "保护套已取下，表面清洁无堵塞、无变形损伤",
+        "checked": false
+      },
+      {
+        "id": "pf-3",
+        "title": "前/主起落架减震支柱及轮胎",
+        "zone": "ATA 32",
+        "spec": "镜面清洁无漏油，胎面无扎伤/脱层，胎压及刹车磨损指示销正常",
+        "checked": false
+      },
+      {
+        "id": "pf-4",
+        "title": "左/右发动机进气道唇口与风扇叶片",
+        "zone": "ATA 71/72",
+        "spec": "唇口无凹坑击伤，风扇叶片无缺口裂纹，滑油无渗漏",
+        "checked": false
+      },
+      {
+        "id": "pf-5",
+        "title": "左/右大翼前缘、襟翼与航行灯罩",
+        "zone": "ATA 27/33",
+        "spec": "蒙皮无异常凹陷，灯罩完整清洁，静电释放刷齐全",
+        "checked": false
+      },
+      {
+        "id": "pf-6",
+        "title": "APU 进气口、排气尾喷及周边蒙皮",
+        "zone": "ATA 49",
+        "spec": "进排气口无异物，底部排放口无异常燃油/滑油滴漏",
+        "checked": false
+      },
+      {
+        "id": "pf-7",
+        "title": "液压油箱油量与系统压力表",
+        "zone": "ATA 29",
+        "spec": "A/B(绿/黄/蓝)系统油量在正常绿区刻度范围内",
+        "checked": false
+      },
+      {
+        "id": "pf-8",
+        "title": "驾驶舱氧气瓶压力与应急设备",
+        "zone": "ATA 35",
+        "spec": "机组氧气压力满足放行标准，灭火瓶及逃生绳封铅完好",
+        "checked": false
+      },
+      {
+        "id": "pf-9",
+        "title": "飞行记录本 (TLB) 与保留故障核对",
+        "zone": "放行文件",
+        "spec": "前序故障已闭环或按 MEL 办妥保留，放行签署完整",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "id": "tpl-weekly",
+    "name": "周检专项",
+    "code": "WK",
+    "aircraftModel": "定期专项",
+    "description": "每周周期性重点部位检查与功能测试辅助单",
+    "updatedAt": "2026-11-19T10:28:59.718Z",
+    "items": [
+      {
+        "id": "wk-1",
+        "title": "客舱应急滑梯/救生筏压力表核查",
+        "zone": "ATA 25",
+        "spec": "各舱门滑梯气瓶压力指针位于绿区范围内",
+        "checked": false
+      },
+      {
+        "id": "wk-2",
+        "title": "电瓶电压、接插件及通风管检查",
+        "zone": "ATA 24",
+        "spec": "主/APU电瓶电压 >= 24V，接线柱无腐蚀过热迹象",
+        "checked": false
+      },
+      {
+        "id": "wk-3",
+        "title": "客舱与外部应急照明系统测试",
+        "zone": "ATA 33",
+        "spec": "地板撤离灯带、出口标识及外部应急灯工作正常",
+        "checked": false
+      },
+      {
+        "id": "wk-4",
+        "title": "各舵面及反推作动筒渗漏复检",
+        "zone": "ATA 27/78",
+        "spec": "副翼、升降舵、方向舵作动筒无超标渗油",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "id": "tpl-postflight",
+    "name": "航后检查",
+    "code": "AF",
+    "aircraftModel": "B737 / A320 通用",
+    "description": "当日航班全部结束后例行深度检查与航后维护",
+    "updatedAt": "2026-11-19T10:28:59.718Z",
+    "items": [
+      {
+        "id": "af-1",
+        "title": "全机外表面损伤与渗漏详查",
+        "zone": "整机绕机",
+        "spec": "检查机腹、机翼下表面、天线及放电刷是否完好",
+        "checked": false
+      },
+      {
+        "id": "af-2",
+        "title": "发动机及 APU 滑油量检查与添加",
+        "zone": "ATA 79/49",
+        "spec": "停机规定窗口期内测量油位，按需加注并记录加注量",
+        "checked": false
+      },
+      {
+        "id": "af-3",
+        "title": "起落架轮舱管路、作动筒及刹车检查",
+        "zone": "ATA 32",
+        "spec": "轮舱内液压管路/线束卡箍无松脱渗漏，刹车磨损销正常",
+        "checked": false
+      },
+      {
+        "id": "af-4",
+        "title": "驾驶舱跳开关 (C/B) 与面板核查",
+        "zone": "ATA 24",
+        "spec": "所有跳开关处于正常闭合位，无异常拔出或跳开",
+        "checked": false
+      },
+      {
+        "id": "af-5",
+        "title": "航后工卡缺陷排故及 MEL 核销",
+        "zone": "维修记录",
+        "spec": "机组反映问题已排查闭环，保留故障按期追踪",
+        "checked": false
+      },
+      {
+        "id": "af-6",
+        "title": "工具箱三清点与机坪 FOD 清理",
+        "zone": "工具管控",
+        "spec": "进场/作业/离场工具清点无误，工作梯及警示牌归位",
+        "checked": false
+      },
+      {
+        "id": "af-7",
+        "title": "防风系留、轮挡及空速管套安装",
+        "zone": "停场防护",
+        "spec": "轮挡垫放牢固，必要时安装风挡遮阳板及发动机堵盖",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "id": "tpl-transit",
+    "name": "过站检查",
+    "code": "TR",
+    "aircraftModel": "短停过站",
+    "description": "航班经停短停期间关键安全部位快速复查",
+    "updatedAt": "2026-11-19T10:28:59.718Z",
+    "items": [
+      {
+        "id": "tr-1",
+        "title": "机身蒙皮及雷达罩鸟击/雷击快检",
+        "zone": "外表面",
+        "spec": "无新增撞击凹坑、烧蚀痕迹或油液拖尾",
+        "checked": false
+      },
+      {
+        "id": "tr-2",
+        "title": "机轮轮胎气压与刹车温度检查",
+        "zone": "ATA 32",
+        "spec": "轮胎无割伤鼓包，刹车温度处于允许放行区间",
+        "checked": false
+      },
+      {
+        "id": "tr-3",
+        "title": "发动机包皮锁扣与底部排放口",
+        "zone": "ATA 71",
+        "spec": "风扇/反推包皮锁扣全部扣紧平齐，无异常渗漏",
+        "checked": false
+      },
+      {
+        "id": "tr-4",
+        "title": "风挡玻璃清洁度与雨刷状态",
+        "zone": "ATA 56",
+        "spec": "风挡无裂纹分层，雨刷贴合良好，玻璃表面清洁",
+        "checked": false
+      },
+      {
+        "id": "tr-5",
+        "title": "前后货舱门及勤务盖板关闭锁紧",
+        "zone": "ATA 52",
+        "spec": "水/污勤务面板、加油面板及货舱门锁闭标识正常",
+        "checked": false
+      },
+      {
+        "id": "tr-6",
+        "title": "地面耳机盖板与轮挡撤离确认",
+        "zone": "推出前",
+        "spec": "外接电源/耳机线已断开，盖板盖好，无遗留工具",
+        "checked": false
+      }
+    ]
+  }
+]

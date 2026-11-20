@@ -1,0 +1,909 @@
+[
+  {
+    "id": "tpl-1795176395757",
+    "name": "TASKS LIST",
+    "code": "TL",
+    "aircraftModel": "每次工作汇总清单",
+    "description": "",
+    "items": [],
+    "updatedAt": "2026-11-20T12:07:57.961Z"
+  },
+  {
+    "id": "tpl-1795176453794",
+    "name": "G700 POWER UP",
+    "code": "PU",
+    "aircraftModel": "G700",
+    "description": "",
+    "items": [
+      {
+        "id": "item-1795176763606-0-ocnx",
+        "title": "EMERGENCY POWER",
+        "spec": "ARM/Check+",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-1-gmed",
+        "title": "MAIN BATTERIES",
+        "spec": "ON",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-2-yqe4",
+        "title": "FCS BATTERIES",
+        "spec": "In",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-3-e7lv",
+        "title": "ELECTRICAL POWER CONTROL",
+        "spec": "Check",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-4-9au0",
+        "title": "Main Door",
+        "spec": "Open",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-5-19o4",
+        "title": "Select ECL Special Conditions",
+        "spec": "ECL Menu/Settings",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-6-h89q",
+        "title": "Fire Test",
+        "spec": "Perform+",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-7-1l4r",
+        "title": "APU MASTER",
+        "spec": "In",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-8-b1be",
+        "title": "APU (READY on)",
+        "spec": "START",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-9-h5j7",
+        "title": "(HWx) External Baggage Door",
+        "spec": "Closed",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-10-aexx",
+        "title": "Master Test",
+        "spec": "Perform+",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-11-sd1r",
+        "title": "EMERGENCY POWER",
+        "spec": "ARM",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-12-sjwy",
+        "title": "APU BLEED",
+        "spec": "ON",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-13-pamq",
+        "title": "Fire Handles",
+        "spec": "In",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-14-h6tv",
+        "title": "Landing Gear",
+        "spec": "Down / 3 Green",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-15-lzx4",
+        "title": "FUEL CONTROLS",
+        "spec": "OFF",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-16-n3yr",
+        "title": "SPEED BRAKE",
+        "spec": "RETRACT",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-17-dsc8",
+        "title": "(CWx) PARKING BRAKE",
+        "spec": "Cycle 10 times if SAT < -20C",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-18-pjq8",
+        "title": "PARKING BRAKE",
+        "spec": "Set / 2000 psi",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-19-x580",
+        "title": "Cabin Power",
+        "spec": "All On",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-20-uxoy",
+        "title": "(HWx) Acoustic Door",
+        "spec": "Closed",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-21-40e0",
+        "title": "HUDs / EVS",
+        "spec": "Deploy / Check",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-22-qpj6",
+        "title": "FCS Trim",
+        "spec": "Check+",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-23-eak4",
+        "title": "FMSs",
+        "spec": "Check / Load",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-24-vk7c",
+        "title": "(HWx) Window Shades",
+        "spec": "Down",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-25-s1tc",
+        "title": "Secondary Power",
+        "spec": "Check",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-26-mm1z",
+        "title": "FCS Test",
+        "spec": "Perform+",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-27-zny3",
+        "title": "NWS POWER",
+        "spec": "OFF",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-28-td8y",
+        "title": "PEDAL STEERING",
+        "spec": "Out",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-29-jnvn",
+        "title": "Oxygen Systems",
+        "spec": "Check+",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-30-ra7m",
+        "title": "Communications",
+        "spec": "Set/Establish",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-31-rfwe",
+        "title": "Arm Supports / Visors",
+        "spec": "Adjust",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-32-4j92",
+        "title": "Altimeters",
+        "spec": "Set/Crosscheck",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-33-sffs",
+        "title": "Autobrake",
+        "spec": "RTO if desired",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176763606-34-xxge",
+        "title": "Takeoff",
+        "spec": "Brief",
+        "zone": "",
+        "checked": false
+      }
+    ],
+    "updatedAt": "2026-11-20T12:12:43.606Z"
+  },
+  {
+    "id": "tpl-1795176533178",
+    "name": "G700 ENGINE RUN",
+    "code": "ER",
+    "aircraftModel": "G700",
+    "description": "",
+    "items": [
+      {
+        "id": "item-1795176886879-0-7hvv",
+        "title": "Caution：(CWx) Inspect engine to ensure no ice is present on inlet, fan, or nose cone.",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-1-slbc",
+        "title": "(CWx) Engine",
+        "spec": "Clear of ice",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-2-69s4",
+        "title": "Main Door",
+        "spec": "As desired",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-3-c5sy",
+        "title": "PARKING BRAKE",
+        "spec": "Set / 2000 psi",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-4-q69n",
+        "title": "BLEED AIR Panel",
+        "spec": "Check",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-5-6x7l",
+        "title": "Bleed Press",
+        "spec": "22 psi min",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-6-3aqv",
+        "title": "Throttles",
+        "spec": "Idle",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-7-mivl",
+        "title": "T/R Levers",
+        "spec": "Down",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-8-93te",
+        "title": "Note：(CWx) If oil temp is less than -25C, perform 3-minute dry crank on each engine and cycle the fuel controls prior to engine start.",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-9-xdqy",
+        "title": "(CWx) Start Oil Temperature",
+        "spec": "-35C minimum",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-10-bj7e",
+        "title": "(CWx) WAI - L and R",
+        "spec": "Off",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-11-a9hr",
+        "title": "Note：(HiAlt) Monitor TGT closely during start at high elevation (800C maximum).",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-12-hbb6",
+        "title": "R FUEL CONTROL",
+        "spec": "RUN",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-13-879p",
+        "title": "ENGINE START",
+        "spec": "Press",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-14-ba14",
+        "title": "PTU / Right Hyd Press",
+        "spec": "3000/3000",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-15-1bo2",
+        "title": "Right Engine",
+        "spec": "Confirm Idle",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-16-f41u",
+        "title": "L FUEL CONTROL",
+        "spec": "RUN",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-17-j1tk",
+        "title": "ENGINE START",
+        "spec": "Press",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-18-6938",
+        "title": "Left/PTU/Right Hyd Press",
+        "spec": "3000/0/3000",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-19-jua1",
+        "title": "Left Engine",
+        "spec": "Confirm Idle",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-20-posa",
+        "title": "(CWx) LP EVM",
+        "spec": "Confirm < 0.30",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-21-gz5m",
+        "title": "Flight Controls",
+        "spec": "Check+",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-22-hpyp",
+        "title": "Note：(HWx) Consider leaving APU air on during taxi for improved cooling.",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-23-o6cz",
+        "title": "APU BLEED/APU",
+        "spec": "As desired",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-24-cxl6",
+        "title": "(CWx) CAI / WAI",
+        "spec": "As required",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-25-twf9",
+        "title": "External Doors",
+        "spec": "Closed",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-26-9d6s",
+        "title": "Seat Belt",
+        "spec": "On",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-27-i1ow",
+        "title": "(CWx) Flaps",
+        "spec": "Cycle until left hyd temp > -15C",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-28-q5xs",
+        "title": "NWS POWER",
+        "spec": "ON",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176886879-29-hk90",
+        "title": "END",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      }
+    ],
+    "updatedAt": "2026-11-20T12:14:46.879Z"
+  },
+  {
+    "id": "tpl-1795176555800",
+    "name": "G700 SHUT DOWN",
+    "code": "SD",
+    "aircraftModel": "G700",
+    "description": "",
+    "items": [
+      {
+        "id": "item-1795176926588-0-mnd4",
+        "title": "PARKING BRAKE",
+        "spec": "Set",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-1-523q",
+        "title": "Seat Belt",
+        "spec": "Off",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-2-of1y",
+        "title": "NWS POWER",
+        "spec": "OFF",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-3-4cc0",
+        "title": "Throttles",
+        "spec": "Idle",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-4-n2kt",
+        "title": "T/R Levers",
+        "spec": "Down",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-5-b2qm",
+        "title": "--- Idle 3 minutes ---",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-6-j0dt",
+        "title": "FUEL CONTROLS",
+        "spec": "OFF",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-7-dvby",
+        "title": "--- Diff Press (< 0.1 psi) ---",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-8-3wt7",
+        "title": "Main Door",
+        "spec": "OPEN",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-9-dzek",
+        "title": "APU BLEED",
+        "spec": "In",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-10-om2b",
+        "title": "FCS BATTERIES",
+        "spec": "OFF",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-11-k3wu",
+        "title": "EMERGENCY POWER",
+        "spec": "OFF",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-12-ui5b",
+        "title": "--- Passenger Unload ---",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-13-nsb1",
+        "title": "Oil Quantity (Check/Service)",
+        "spec": "5 min - 24 hrs after shutdown",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-14-no3i",
+        "title": "(HWx) Window Shades",
+        "spec": "Down",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-15-7z4h",
+        "title": "APU",
+        "spec": "STOP",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-16-choi",
+        "title": "APU MASTER (RPM<70%)",
+        "spec": "Out",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-17-gdp8",
+        "title": "TROV",
+        "spec": "CLSD",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-18-wq5c",
+        "title": "MAIN BATTERIES (APU RPM 0%)",
+        "spec": "OFF",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-19-e97a",
+        "title": "Landing Gear",
+        "spec": "Chock",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-20-qmhp",
+        "title": "Egress Hatch",
+        "spec": "Locked (if required)",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-21-17a2",
+        "title": "Emergency Exit Lockout Pins",
+        "spec": "Installed (if required)",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-22-o12a",
+        "title": "PARKING BRAKE",
+        "spec": "As required",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-23-o1se",
+        "title": "Pins / Covers",
+        "spec": "Install",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-24-eqvb",
+        "title": "External Doors",
+        "spec": "Secure",
+        "zone": "",
+        "checked": false
+      },
+      {
+        "id": "item-1795176926588-25-cusq",
+        "title": "END",
+        "spec": "",
+        "zone": "",
+        "checked": false
+      }
+    ],
+    "updatedAt": "2026-11-20T12:15:26.588Z"
+  },
+  {
+    "id": "tpl-1795176621190",
+    "name": "G700 BEFORE LEAVE",
+    "code": "BL",
+    "aircraftModel": "G700",
+    "description": "",
+    "items": [],
+    "updatedAt": "2026-11-20T12:10:21.190Z"
+  },
+  {
+    "id": "tpl-preflight",
+    "name": "航前检查",
+    "code": "PF",
+    "aircraftModel": "B737 / A320 通用",
+    "description": "每日首班出港前绕机与驾驶舱基础状态核对",
+    "updatedAt": "2026-11-20T11:53:23.514Z",
+    "items": [
+      {
+        "id": "pf-1",
+        "title": "地面安全销及反光锥筒确认",
+        "zone": "机身周边",
+        "spec": "起落架安全销插放规范，反光锥筒位置无侵限",
+        "checked": false
+      },
+      {
+        "id": "pf-2",
+        "title": "空速管、静压孔与迎角传感器",
+        "zone": "前机身",
+        "spec": "保护套已取下，表面清洁无堵塞、无变形损伤",
+        "checked": false
+      },
+      {
+        "id": "pf-3",
+        "title": "前/主起落架减震支柱及轮胎",
+        "zone": "ATA 32",
+        "spec": "镜面清洁无漏油，胎面无扎伤/脱层，胎压及刹车磨损指示销正常",
+        "checked": false
+      },
+      {
+        "id": "pf-4",
+        "title": "左/右发动机进气道唇口与风扇叶片",
+        "zone": "ATA 71/72",
+        "spec": "唇口无凹坑击伤，风扇叶片无缺口裂纹，滑油无渗漏",
+        "checked": false
+      },
+      {
+        "id": "pf-5",
+        "title": "左/右大翼前缘、襟翼与航行灯罩",
+        "zone": "ATA 27/33",
+        "spec": "蒙皮无异常凹陷，灯罩完整清洁，静电释放刷齐全",
+        "checked": false
+      },
+      {
+        "id": "pf-6",
+        "title": "APU 进气口、排气尾喷及周边蒙皮",
+        "zone": "ATA 49",
+        "spec": "进排气口无异物，底部排放口无异常燃油/滑油滴漏",
+        "checked": false
+      },
+      {
+        "id": "pf-7",
+        "title": "液压油箱油量与系统压力表",
+        "zone": "ATA 29",
+        "spec": "A/B(绿/黄/蓝)系统油量在正常绿区刻度范围内",
+        "checked": false
+      },
+      {
+        "id": "pf-8",
+        "title": "驾驶舱氧气瓶压力与应急设备",
+        "zone": "ATA 35",
+        "spec": "机组氧气压力满足放行标准，灭火瓶及逃生绳封铅完好",
+        "checked": false
+      },
+      {
+        "id": "pf-9",
+        "title": "飞行记录本 (TLB) 与保留故障核对",
+        "zone": "放行文件",
+        "spec": "前序故障已闭环或按 MEL 办妥保留，放行签署完整",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "id": "tpl-transit",
+    "name": "过站检查",
+    "code": "TR",
+    "aircraftModel": "短停过站",
+    "description": "航班经停短停期间关键安全部位快速复查",
+    "updatedAt": "2026-11-20T11:53:23.514Z",
+    "items": [
+      {
+        "id": "tr-1",
+        "title": "机身蒙皮及雷达罩鸟击/雷击快检",
+        "zone": "外表面",
+        "spec": "无新增撞击凹坑、烧蚀痕迹或油液拖尾",
+        "checked": false
+      },
+      {
+        "id": "tr-2",
+        "title": "机轮轮胎气压与刹车温度检查",
+        "zone": "ATA 32",
+        "spec": "轮胎无割伤鼓包，刹车温度处于允许放行区间",
+        "checked": false
+      },
+      {
+        "id": "tr-3",
+        "title": "发动机包皮锁扣与底部排放口",
+        "zone": "ATA 71",
+        "spec": "风扇/反推包皮锁扣全部扣紧平齐，无异常渗漏",
+        "checked": false
+      },
+      {
+        "id": "tr-4",
+        "title": "风挡玻璃清洁度与雨刷状态",
+        "zone": "ATA 56",
+        "spec": "风挡无裂纹分层，雨刷贴合良好，玻璃表面清洁",
+        "checked": false
+      },
+      {
+        "id": "tr-5",
+        "title": "前后货舱门及勤务盖板关闭锁紧",
+        "zone": "ATA 52",
+        "spec": "水/污勤务面板、加油面板及货舱门锁闭标识正常",
+        "checked": false
+      },
+      {
+        "id": "tr-6",
+        "title": "地面耳机盖板与轮挡撤离确认",
+        "zone": "推出前",
+        "spec": "外接电源/耳机线已断开，盖板盖好，无遗留工具",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "id": "tpl-postflight",
+    "name": "航后检查",
+    "code": "AF",
+    "aircraftModel": "B737 / A320 通用",
+    "description": "当日航班全部结束后例行深度检查与航后维护",
+    "updatedAt": "2026-11-20T11:53:23.514Z",
+    "items": [
+      {
+        "id": "af-1",
+        "title": "全机外表面损伤与渗漏详查",
+        "zone": "整机绕机",
+        "spec": "检查机腹、机翼下表面、天线及放电刷是否完好",
+        "checked": false
+      },
+      {
+        "id": "af-2",
+        "title": "发动机及 APU 滑油量检查与添加",
+        "zone": "ATA 79/49",
+        "spec": "停机规定窗口期内测量油位，按需加注并记录加注量",
+        "checked": false
+      },
+      {
+        "id": "af-3",
+        "title": "起落架轮舱管路、作动筒及刹车检查",
+        "zone": "ATA 32",
+        "spec": "轮舱内液压管路/线束卡箍无松脱渗漏，刹车磨损销正常",
+        "checked": false
+      },
+      {
+        "id": "af-4",
+        "title": "驾驶舱跳开关 (C/B) 与面板核查",
+        "zone": "ATA 24",
+        "spec": "所有跳开关处于正常闭合位，无异常拔出或跳开",
+        "checked": false
+      },
+      {
+        "id": "af-5",
+        "title": "航后工卡缺陷排故及 MEL 核销",
+        "zone": "维修记录",
+        "spec": "机组反映问题已排查闭环，保留故障按期追踪",
+        "checked": false
+      },
+      {
+        "id": "af-6",
+        "title": "工具箱三清点与机坪 FOD 清理",
+        "zone": "工具管控",
+        "spec": "进场/作业/离场工具清点无误，工作梯及警示牌归位",
+        "checked": false
+      },
+      {
+        "id": "af-7",
+        "title": "防风系留、轮挡及空速管套安装",
+        "zone": "停场防护",
+        "spec": "轮挡垫放牢固，必要时安装风挡遮阳板及发动机堵盖",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "id": "tpl-weekly",
+    "name": "周检专项",
+    "code": "WK",
+    "aircraftModel": "定期专项",
+    "description": "每周周期性重点部位检查与功能测试辅助单",
+    "updatedAt": "2026-11-20T11:53:23.514Z",
+    "items": [
+      {
+        "id": "wk-1",
+        "title": "客舱应急滑梯/救生筏压力表核查",
+        "zone": "ATA 25",
+        "spec": "各舱门滑梯气瓶压力指针位于绿区范围内",
+        "checked": false
+      },
+      {
+        "id": "wk-2",
+        "title": "电瓶电压、接插件及通风管检查",
+        "zone": "ATA 24",
+        "spec": "主/APU电瓶电压 >= 24V，接线柱无腐蚀过热迹象",
+        "checked": false
+      },
+      {
+        "id": "wk-3",
+        "title": "客舱与外部应急照明系统测试",
+        "zone": "ATA 33",
+        "spec": "地板撤离灯带、出口标识及外部应急灯工作正常",
+        "checked": false
+      },
+      {
+        "id": "wk-4",
+        "title": "各舵面及反推作动筒渗漏复检",
+        "zone": "ATA 27/78",
+        "spec": "副翼、升降舵、方向舵作动筒无超标渗油",
+        "checked": false
+      }
+    ]
+  }
+]
