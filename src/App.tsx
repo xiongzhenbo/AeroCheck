@@ -4,7 +4,7 @@ import { BackupInstallModal } from './components/BackupInstallModal';
 import { ChecklistModal } from './components/ChecklistModal';
 import { ChecklistOrderModal } from './components/ChecklistOrderModal';
 import { ChecklistWorkspace } from './components/ChecklistWorkspace';
-import { ItemModal } from './components/ItemModal';
+import { InsertPosition, ItemModal } from './components/ItemModal';
 import { OfflineIndicator } from './components/OfflineIndicator';
 import { DEFAULT_CHECKLISTS, getDefaultChecklists } from './data/defaultChecklists';
 import { TRANSLATIONS } from './i18n/translations';
@@ -330,7 +330,8 @@ export default function App() {
 
   const handleSaveSingleItem = (
     data: { title: string; spec: string; zone: string },
-    keepOpen: boolean
+    keepOpen: boolean,
+    position: InsertPosition
   ) => {
     const now = new Date().toISOString();
     setChecklists((prev) =>
@@ -362,7 +363,7 @@ export default function App() {
         return {
           ...tpl,
           updatedAt: now,
-          items: [...tpl.items, newItem],
+          items: position === 'top' ? [newItem, ...tpl.items] : [...tpl.items, newItem],
         };
       })
     );
@@ -373,7 +374,8 @@ export default function App() {
   };
 
   const handleBatchAddItems = (
-    itemsToAdd: Array<{ title: string; spec: string; zone: string }>
+    itemsToAdd: Array<{ title: string; spec: string; zone: string }>,
+    position: InsertPosition
   ) => {
     const now = new Date().toISOString();
     const newItems: ChecklistItem[] = itemsToAdd.map((entry, idx) => ({
@@ -389,7 +391,7 @@ export default function App() {
           ? {
               ...tpl,
               updatedAt: now,
-              items: [...tpl.items, ...newItems],
+              items: position === 'top' ? [...newItems, ...tpl.items] : [...tpl.items, ...newItems],
             }
           : tpl
       )

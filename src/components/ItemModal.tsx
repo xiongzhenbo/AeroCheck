@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ListPlus, Plus, X } from 'lucide-react';
+import { ArrowDownToLine, ArrowUpToLine, ListPlus, Plus, X } from 'lucide-react';
 import { Language, TRANSLATIONS } from '../i18n/translations';
 import { ChecklistItem } from '../types/checklist';
+
+export type InsertPosition = 'top' | 'bottom';
 
 interface ItemModalProps {
   language: Language;
@@ -11,9 +13,13 @@ interface ItemModalProps {
   onClose: () => void;
   onSaveSingle: (
     data: { title: string; spec: string; zone: string },
-    keepOpen: boolean
+    keepOpen: boolean,
+    position: InsertPosition
   ) => void;
-  onBatchAdd: (items: Array<{ title: string; spec: string; zone: string }>) => void;
+  onBatchAdd: (
+    items: Array<{ title: string; spec: string; zone: string }>,
+    position: InsertPosition
+  ) => void;
 }
 
 export const ItemModal: React.FC<ItemModalProps> = ({
@@ -26,6 +32,7 @@ export const ItemModal: React.FC<ItemModalProps> = ({
   onBatchAdd,
 }) => {
   const [mode, setMode] = useState<'single' | 'batch'>('single');
+  const [insertPosition, setInsertPosition] = useState<InsertPosition>('bottom');
   const [title, setTitle] = useState('');
   const [spec, setSpec] = useState('');
   const [zone, setZone] = useState('');
@@ -62,7 +69,8 @@ export const ItemModal: React.FC<ItemModalProps> = ({
         spec: spec.trim(),
         zone: zone.trim(),
       },
-      keepOpen
+      keepOpen,
+      insertPosition
     );
     if (keepOpen) {
       setTitle('');
@@ -90,7 +98,7 @@ export const ItemModal: React.FC<ItemModalProps> = ({
   const handleBatchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (parsedBatchLines.length === 0) return;
-    onBatchAdd(parsedBatchLines);
+    onBatchAdd(parsedBatchLines, insertPosition);
   };
 
   return (
@@ -120,7 +128,39 @@ export const ItemModal: React.FC<ItemModalProps> = ({
         </div>
 
         {!editingItem && (
-          <div className="px-5 pt-4">
+          <div className="px-5 pt-4 space-y-2.5">
+            <div>
+              <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+                {t.insertPositionLabel}
+              </div>
+              <div className="grid grid-cols-2 gap-1 p-1 rounded-xl bg-slate-100 dark:bg-[#0D1117] border border-slate-200 dark:border-slate-800">
+                <button
+                  type="button"
+                  onClick={() => setInsertPosition('top')}
+                  className={`min-h-[38px] rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 transition-colors cursor-pointer whitespace-nowrap ${
+                    insertPosition === 'top'
+                      ? 'bg-emerald-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  }`}
+                >
+                  <ArrowUpToLine className="w-3.5 h-3.5 shrink-0" />
+                  <span>{t.insertAtTop}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setInsertPosition('bottom')}
+                  className={`min-h-[38px] rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 transition-colors cursor-pointer whitespace-nowrap ${
+                    insertPosition === 'bottom'
+                      ? 'bg-emerald-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  }`}
+                >
+                  <ArrowDownToLine className="w-3.5 h-3.5 shrink-0" />
+                  <span>{t.insertAtBottom}</span>
+                </button>
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 gap-1 p-1 rounded-xl bg-slate-100 dark:bg-[#0D1117] border border-slate-200 dark:border-slate-800">
               <button
                 type="button"

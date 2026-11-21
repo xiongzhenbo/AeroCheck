@@ -102,6 +102,9 @@ export const TRANSLATIONS = {
     // Item Modal
     editItemTitle: '编辑检查项目',
     addItemTitle: (name: string) => `添加检查项目 · ${name}`,
+    insertPositionLabel: '插入位置',
+    insertAtTop: '加到最上方',
+    insertAtBottom: '加到最后边',
     singleEntryTab: '逐条录入',
     batchImportTab: '批量粘贴导入',
     addedNotice: (title: string) => `已添加「${title}」，可继续输入下一项`,
@@ -257,6 +260,9 @@ export const TRANSLATIONS = {
     // Item Modal
     editItemTitle: 'Edit Checklist Item',
     addItemTitle: (name: string) => `Add Item · ${name}`,
+    insertPositionLabel: 'Insert Position',
+    insertAtTop: 'Add to Top',
+    insertAtBottom: 'Add to Bottom',
     singleEntryTab: 'Single Entry',
     batchImportTab: 'Batch Paste',
     addedNotice: (title: string) => `Added "${title}". Enter the next item below.`,
