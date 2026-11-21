@@ -83,6 +83,13 @@ export default function App() {
   } | null>(null);
   const undoTimerRef = useRef<number | null>(null);
 
+  const [showBackExitToast, setShowBackExitToast] = useState(false);
+  const backConfirmTimerRef = useRef<number | null>(null);
+  const overlayStateRef = useRef({
+    hasModal: false,
+    isEditMode: false,
+  });
+
   const t = TRANSLATIONS[settings.language];
 
   const activeChecklist =
@@ -120,6 +127,80 @@ export default function App() {
       themeMeta.setAttribute('content', settings.theme === 'dark' ? '#0D1117' : '#F8FAFC');
     }
   }, [settings]);
+
+  useEffect(() => {
+    overlayStateRef.current = {
+      hasModal: checklistModalOpen || itemModalOpen || backupModalOpen || orderModalOpen,
+      isEditMode,
+    };
+  }, [checklistModalOpen, itemModalOpen, backupModalOpen, orderModalOpen, isEditMode]);
+
+  useEffect(() => {
+    const isStandalone =
+      window.matchMedia('(display-mode: standalone)').matches ||
+      (window.navigator as unknown as { standalone?: boolean }).standalone === true;
+    if (!isStandalone) return;
+
+    const armGuard = () => {
+      try {
+        if (!window.history.state?.aeroGuard) {
+          window.history.pushState({ aeroGuard: true }, '');
+        }
+      } catch {
+        // Ignore restricted history APIs
+      }
+    };
+
+    const handleUserGesture = () => {
+      if (backConfirmTimerRef.current) {
+        window.clearTimeout(backConfirmTimerRef.current);
+        backConfirmTimerRef.current = null;
+      }
+      setShowBackExitToast(false);
+      armGuard();
+    };
+
+    const handlePopState = () => {
+      const { hasModal, isEditMode: editing } = overlayStateRef.current;
+      if (hasModal) {
+        setChecklistModalOpen(false);
+        setEditingChecklist(null);
+        setItemModalOpen(false);
+        setEditingItem(null);
+        setBackupModalOpen(false);
+        setOrderModalOpen(false);
+        armGuard();
+        return;
+      }
+
+      if (editing) {
+        setIsEditMode(false);
+        armGuard();
+        return;
+      }
+
+      // First back-swipe on main screen lands at index 0 and shows confirmation toast;
+      // an immediate second swipe exits natively, while tapping anywhere re-arms the guard.
+      setShowBackExitToast(true);
+      if (backConfirmTimerRef.current) {
+        window.clearTimeout(backConfirmTimerRef.current);
+      }
+      backConfirmTimerRef.current = window.setTimeout(() => {
+        setShowBackExitToast(false);
+        armGuard();
+      }, 2500);
+    };
+
+    window.addEventListener('pointerdown', handleUserGesture, { passive: true });
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('pointerdown', handleUserGesture);
+      window.removeEventListener('popstate', handlePopState);
+      if (backConfirmTimerRef.current) {
+        window.clearTimeout(backConfirmTimerRef.current);
+      }
+    };
+  }, []);
 
   const toggleTheme = () => {
     setSettings((prev) => ({
@@ -566,6 +647,16 @@ export default function App() {
           onOpenBackupModal={() => setBackupModalOpen(true)}
         />
       </div>
+
+      {/* Back-Swipe Exit Guard Toast */}
+      {showBackExitToast && !undoSnapshot && (
+        <div
+          role="status"
+          className="fixed bottom-20 lg:bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-[calc(100%-2rem)] rounded-xl bg-slate-900/95 dark:bg-slate-800/95 border border-slate-700 text-white px-4 py-2.5 shadow-2xl text-xs font-medium text-center"
+        >
+          {t.backExitToast}
+        </div>
+      )}
 
       {/* Undo Reset Toast */}
       {undoSnapshot && (

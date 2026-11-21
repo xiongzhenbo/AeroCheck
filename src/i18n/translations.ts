@@ -71,6 +71,7 @@ export const TRANSLATIONS = {
     // Undo Toast
     undoResetMsg: (name: string) => `已重置「${name}」，可开始下一架次`,
     undoBtn: '撤销',
+    backExitToast: '再划一次退出（建议直接底部上划切后台，可防卡启动页）',
 
     // Checklist Modal
     editChecklistTitle: '编辑检查单类型',
@@ -229,6 +230,7 @@ export const TRANSLATIONS = {
     // Undo Toast
     undoResetMsg: (name: string) => `Reset "${name}" for next turn`,
     undoBtn: 'Undo',
+    backExitToast: 'Swipe back again to exit (swipe up to Home recommended)',
 
     // Checklist Modal
     editChecklistTitle: 'Edit Checklist Type',
