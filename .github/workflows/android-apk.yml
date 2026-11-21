@@ -34,6 +34,20 @@ jobs:
       - name: Configure Android SDK
         run: |
           SDK_DIR="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          if [ ! -d "$SDK_DIR" ]; then
+            SDK_DIR="$HOME/android-sdk"
+            mkdir -p "$SDK_DIR"
+          fi
+
+          if [ ! -w "$SDK_DIR" ] && command -v sudo >/dev/null 2>&1; then
+            sudo chown "$(id -u):$(id -g)" "$SDK_DIR" || true
+            for sub in licenses platforms build-tools platform-tools cmdline-tools; do
+              if [ -d "${SDK_DIR}/${sub}" ]; then
+                sudo chown -R "$(id -u):$(id -g)" "${SDK_DIR}/${sub}" || true
+              fi
+            done
+          fi
+
           echo "ANDROID_HOME=${SDK_DIR}" >> "$GITHUB_ENV"
           echo "ANDROID_SDK_ROOT=${SDK_DIR}" >> "$GITHUB_ENV"
 
@@ -44,15 +58,26 @@ jobs:
             SDKMANAGER=$(find "${SDK_DIR}" -name sdkmanager -type f 2>/dev/null | head -n 1 || true)
           fi
 
-          if [ -n "$SDKMANAGER" ]; then
-            chmod +x "$SDKMANAGER"
-            echo "$(dirname "$SDKMANAGER")" >> "$GITHUB_PATH"
-            echo "${SDK_DIR}/platform-tools" >> "$GITHUB_PATH"
-            yes | "$SDKMANAGER" --sdk_root="$SDK_DIR" --licenses >/dev/null 2>&1 || true
-            "$SDKMANAGER" --sdk_root="$SDK_DIR" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
-          else
-            echo "sdkmanager not found under ${SDK_DIR}, relying on preinstalled SDK & Gradle auto-download"
+          if [ -z "$SDKMANAGER" ]; then
+            echo "Installing Android commandlinetools into ${SDK_DIR}..."
+            mkdir -p "${SDK_DIR}/cmdline-tools"
+            curl -fsSL -o /tmp/cmdline-tools.zip "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip"
+            unzip -q /tmp/cmdline-tools.zip -d "${SDK_DIR}/cmdline-tools"
+            mv "${SDK_DIR}/cmdline-tools/cmdline-tools" "${SDK_DIR}/cmdline-tools/latest"
+            rm -f /tmp/cmdline-tools.zip
+            SDKMANAGER="${SDK_DIR}/cmdline-tools/latest/bin/sdkmanager"
           fi
+
+          if [ ! -x "$SDKMANAGER" ]; then
+            chmod +x "$SDKMANAGER" || sudo chmod +x "$SDKMANAGER"
+          fi
+
+          echo "Using SDK_DIR=${SDK_DIR} and SDKMANAGER=${SDKMANAGER}"
+          echo "$(dirname "$SDKMANAGER")" >> "$GITHUB_PATH"
+          echo "${SDK_DIR}/platform-tools" >> "$GITHUB_PATH"
+
+          yes | "$SDKMANAGER" --sdk_root="$SDK_DIR" --licenses >/dev/null 2>&1 || true
+          "$SDKMANAGER" --sdk_root="$SDK_DIR" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -119,7 +144,7 @@ jobs:
         working-directory: android
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease --no-daemon
 
       - name: Zipalign and sign release APK
         env:
@@ -133,6 +158,9 @@ jobs:
           APKSIGNER="$BUILD_TOOLS_DIR/apksigner"
 
           UNSIGNED_APK="android/app/build/outputs/apk/release/app-release-unsigned.apk"
+          if [ ! -f "$UNSIGNED_APK" ]; then
+            UNSIGNED_APK=$(find android/app/build/outputs/apk/release -name "*.apk" | head -n 1)
+          fi
           ALIGNED_APK="$RUNNER_TEMP/app-aligned.apk"
           SIGNED_APK="AeroCheck-Android.apk"
           KEYSTORE_PATH="$RUNNER_TEMP/release.keystore"
