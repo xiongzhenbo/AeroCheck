@@ -34,7 +34,7 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build web assets
         run: npm run build
@@ -81,6 +81,7 @@ jobs:
           done
 
           # Replace Capacitor default splash screens with AeroCheck dark splash
+          mkdir -p "${RES_DIR}/drawable"
           convert -size 1080x1920 xc:"#0D1117" \
             \( public/pwa-512x512.png -resize 288x288 \) -gravity center -composite \
             "${RES_DIR}/drawable/splash.png"
@@ -96,6 +97,9 @@ jobs:
       - name: Build unsigned release APK
         working-directory: android
         run: |
+          if [ -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
+            yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
+          fi
           chmod +x gradlew
           ./gradlew assembleRelease
 
