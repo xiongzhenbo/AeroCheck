@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core';
 import React, { useRef, useState } from 'react';
 import { Download, RotateCcw, Smartphone, Upload, X } from 'lucide-react';
 import { Language, TRANSLATIONS } from '../i18n/translations';
@@ -31,14 +32,42 @@ export const BackupInstallModal: React.FC<BackupInstallModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleExport = () => {
+  const handleExport = async () => {
     const payload = JSON.stringify(checklists, null, 2);
+    const dateStr = new Date().toISOString().slice(0, 10);
+    const fileName = `aerocheck-checklists-${dateStr}.json`;
+
+    if (Capacitor.isNativePlatform()) {
+      try {
+        if (typeof navigator !== 'undefined' && navigator.share) {
+          const file = new File([payload], fileName, { type: 'application/json' });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({ title: fileName, files: [file] });
+            setStatusMessage({ type: 'ok', text: t.exportSuccess(checklists.length) });
+            return;
+          }
+          await navigator.share({ title: fileName, text: payload });
+          setStatusMessage({ type: 'ok', text: t.exportSuccess(checklists.length) });
+          return;
+        }
+      } catch (err) {
+        if (err instanceof Error && err.name === 'AbortError') return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(payload);
+        setStatusMessage({ type: 'ok', text: t.exportCopiedSuccess(checklists.length) });
+        return;
+      } catch {
+        // Fall through to anchor download attempt
+      }
+    }
+
     const blob = new Blob([payload], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    const dateStr = new Date().toISOString().slice(0, 10);
     a.href = url;
-    a.download = `aerocheck-checklists-${dateStr}.json`;
+    a.download = fileName;
     a.click();
     URL.revokeObjectURL(url);
     setStatusMessage({ type: 'ok', text: t.exportSuccess(checklists.length) });

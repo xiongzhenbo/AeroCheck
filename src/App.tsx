@@ -1,3 +1,5 @@
+import { App as CapApp } from '@capacitor/app';
+import { Capacitor, SystemBars, SystemBarsStyle } from '@capacitor/core';
 import { useEffect, useRef, useState } from 'react';
 import { Edit3, Moon, Plus, RotateCcw, Sun, Undo2 } from 'lucide-react';
 import { BackupInstallModal } from './components/BackupInstallModal';
@@ -126,6 +128,11 @@ export default function App() {
     if (themeMeta) {
       themeMeta.setAttribute('content', settings.theme === 'dark' ? '#0D1117' : '#F8FAFC');
     }
+    if (Capacitor.isNativePlatform()) {
+      SystemBars.setStyle({
+        style: settings.theme === 'dark' ? SystemBarsStyle.Dark : SystemBarsStyle.Light,
+      }).catch(() => {});
+    }
   }, [settings]);
 
   useEffect(() => {
@@ -136,6 +143,66 @@ export default function App() {
   }, [checklistModalOpen, itemModalOpen, backupModalOpen, orderModalOpen, isEditMode]);
 
   useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      let backArmed = false;
+      let removed = false;
+      let listenerHandle: { remove: () => Promise<void> } | null = null;
+
+      CapApp.addListener('backButton', ({ canGoBack }) => {
+        const { hasModal, isEditMode: editing } = overlayStateRef.current;
+        if (hasModal) {
+          setChecklistModalOpen(false);
+          setEditingChecklist(null);
+          setItemModalOpen(false);
+          setEditingItem(null);
+          setBackupModalOpen(false);
+          setOrderModalOpen(false);
+          return;
+        }
+        if (editing) {
+          setIsEditMode(false);
+          return;
+        }
+        if (canGoBack) {
+          window.history.back();
+          return;
+        }
+        if (backArmed) {
+          backArmed = false;
+          if (backConfirmTimerRef.current) {
+            window.clearTimeout(backConfirmTimerRef.current);
+            backConfirmTimerRef.current = null;
+          }
+          setShowBackExitToast(false);
+          CapApp.minimizeApp().catch(() => {});
+          return;
+        }
+        backArmed = true;
+        setShowBackExitToast(true);
+        if (backConfirmTimerRef.current) {
+          window.clearTimeout(backConfirmTimerRef.current);
+        }
+        backConfirmTimerRef.current = window.setTimeout(() => {
+          backArmed = false;
+          setShowBackExitToast(false);
+        }, 2500);
+      }).then((handle) => {
+        if (removed) {
+          handle.remove().catch(() => {});
+        } else {
+          listenerHandle = handle;
+        }
+      });
+
+      return () => {
+        removed = true;
+        listenerHandle?.remove().catch(() => {});
+        if (backConfirmTimerRef.current) {
+          window.clearTimeout(backConfirmTimerRef.current);
+        }
+      };
+    }
+
     const isStandalone =
       window.matchMedia('(display-mode: standalone)').matches ||
       (window.navigator as unknown as { standalone?: boolean }).standalone === true;
@@ -545,9 +612,9 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-[#0D1117] dark:text-slate-100 flex flex-col">
       <OfflineIndicator language={settings.language} />
 
-      {/* Top Navigation Bar (Strict 3-Zone Contract, 52px height) */}
-      <header className="sticky top-0 z-30 h-[52px] border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-[#0D1117]/90 backdrop-blur-md">
-        <div className="mx-auto h-full max-w-6xl px-4 sm:px-6 flex items-center justify-between gap-3 sm:gap-8">
+      {/* Top Navigation Bar (Strict 3-Zone Contract, 52px height + safe-area top) */}
+      <header className="sticky top-0 z-30 pt-[env(safe-area-inset-top)] border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-[#0D1117]/90 backdrop-blur-md">
+        <div className="mx-auto h-[52px] max-w-6xl px-4 sm:px-6 flex items-center justify-between gap-3 sm:gap-8">
           {/* Zone 1: Single-line Brand Wordmark */}
           <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100 whitespace-nowrap shrink-0">
             <span className="sm:hidden">{t.brandShort}</span>

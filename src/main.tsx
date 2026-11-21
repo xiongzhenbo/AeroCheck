@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core';
 import { createRoot } from 'react-dom/client';
 import { registerSW } from 'virtual:pwa-register';
 import App from './App.tsx';
@@ -8,8 +9,8 @@ if (rootEl) {
   createRoot(rootEl).render(<App />);
 }
 
-// Defer service worker registration so it never blocks first render on PWA resume
-if (typeof window !== 'undefined') {
+// Only register Web Service Worker outside native Capacitor APK builds
+if (typeof window !== 'undefined' && !Capacitor.isNativePlatform()) {
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
       const container = document.getElementById('root');

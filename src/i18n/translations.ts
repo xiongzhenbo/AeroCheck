@@ -127,6 +127,7 @@ export const TRANSLATIONS = {
     // Backup & Install Modal
     backupTitle: '安装指引与数据备份',
     exportSuccess: (count: number) => `已导出 ${count} 份检查单模板`,
+    exportCopiedSuccess: (count: number) => `已复制 ${count} 份检查单备份 JSON 到剪贴板`,
     importSuccess: (count: number) => `成功导入 ${count} 份检查单`,
     importError: '文件格式无效，请选择导出的 JSON 备份文件',
     restoreSuccess: '已恢复默认机务检查单模板',
@@ -286,6 +287,7 @@ export const TRANSLATIONS = {
     // Backup & Install Modal
     backupTitle: 'Install Guide & Backup',
     exportSuccess: (count: number) => `Exported ${count} checklist templates`,
+    exportCopiedSuccess: (count: number) => `Copied ${count} checklist templates JSON to clipboard`,
     importSuccess: (count: number) => `Imported ${count} checklists`,
     importError: 'Invalid file format. Please select an exported JSON backup file.',
     restoreSuccess: 'Restored default maintenance checklist templates',
